@@ -179,7 +179,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		FA4F69612EFB25EA00C6D2DC /* AppTheme */ = {
+		FA4F69612EFB25EA00C6D2DC /* AppThemeManager */ = {
 			isa = PBXGroup;
 			children = (
 				FA4F69622EFB25F800C6D2DC /* AppColors.swift */,
@@ -188,7 +188,7 @@
 				FA4F69682EFB27DA00C6D2DC /* AppFontModifiers.swift */,
 				FA4F696A2EFB290F00C6D2DC /* AppColorModifiers.swift */,
 			);
-			path = AppTheme;
+			path = AppThemeManager;
 			sourceTree = "<group>";
 		};
 		FAD435D62EF4824300FBD323 = {
@@ -318,7 +318,7 @@
 		FAE0F46A2EF73C1400353FA2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				FA4F69612EFB25EA00C6D2DC /* AppTheme */,
+				FA4F69612EFB25EA00C6D2DC /* AppThemeManager */,
 				FAE0F46C2EF73C5A00353FA2 /* ImageManager */,
 				FAE0F46B2EF73C2A00353FA2 /* Network */,
 			);

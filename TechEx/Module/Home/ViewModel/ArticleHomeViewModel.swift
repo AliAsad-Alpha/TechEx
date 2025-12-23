@@ -43,8 +43,6 @@ final class ArticlesViewModel: ObservableObject {
         case .success(let success):
             self.articles = success.results
         case .failure(let networkError):
-            // Check specifically for cancelled error to avoid showing error UI
-            if (networkError as? URLError)?.code == .cancelled { return }
             self.errorMessage = networkError.localizedDescription
         }
     }
