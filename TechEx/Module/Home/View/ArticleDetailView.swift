@@ -28,6 +28,7 @@ struct ArticleDetailView: View {
             isPresented: $showBackConfirmation,
             actions: alertActions
         )
+        .accessibilityIdentifier("article_detail_view")
     }
 }
 
@@ -94,6 +95,7 @@ private extension ArticleDetailView {
             } label: {
                 Image(systemName: "chevron.left")
             }
+            .accessibilityIdentifier("back_button")
         }
     }
 }

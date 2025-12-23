@@ -72,6 +72,7 @@ private extension ArticlesListView {
         if viewModel.isLoading {
             ProgressView()
                 .controlSize(.large)
+                .accessibilityIdentifier("loading_indicator")
         } else if let error = viewModel.errorMessage {
             errorView(error)
         } else {
@@ -92,6 +93,7 @@ private extension ArticlesListView {
                     await viewModel.loadArticles()
                 }
             }
+            .accessibilityIdentifier("retry_button")
             .buttonStyle(PrimaryButtonStyle())
         }
         .padding()
@@ -105,9 +107,11 @@ private extension ArticlesListView {
             NavigationLink(value: HomeRoute.articleDetail(article)) {
                 ArticleRowView(article: article)
             }
+            .accessibilityIdentifier("article_row_\(article.id)")
             .listRowSeparator(.hidden)
             .listRowBackground(Color.clear)
         }
+        .accessibilityIdentifier("articles_list")
         .background(AppColors.background)
         .listStyle(.plain)
         .refreshable {
