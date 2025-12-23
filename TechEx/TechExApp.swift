@@ -10,11 +10,12 @@ import SwiftUI
 @main
 struct TechExApp: App {
     let persistenceController = PersistenceController.shared
-
+    @StateObject private var appCoordinator = HomeCoordinator()
+    
     var body: some Scene {
         WindowGroup {
             ArticlesListView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(appCoordinator)
         }
     }
 }

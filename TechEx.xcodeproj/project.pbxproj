@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA4F694A2EFACD5200C6D2DC /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F69492EFACD5100C6D2DC /* HomeCoordinator.swift */; };
+		FA4F694D2EFACD8C00C6D2DC /* ArticleViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F694C2EFACD8C00C6D2DC /* ArticleViewModifiers.swift */; };
+		FA4F69522EFAD27100C6D2DC /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4F694F2EFAD27100C6D2DC /* Poppins-SemiBold.ttf */; };
+		FA4F69532EFAD27100C6D2DC /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4F69502EFAD27100C6D2DC /* Poppins-Bold.ttf */; };
+		FA4F69542EFAD27100C6D2DC /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4F69512EFAD27100C6D2DC /* Poppins-Regular.ttf */; };
+		FA4F695B2EFAE06C00C6D2DC /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F695A2EFAE06C00C6D2DC /* PrimaryButton.swift */; };
+		FA4F695D2EFAE09900C6D2DC /* SecondryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F695C2EFAE09900C6D2DC /* SecondryButton.swift */; };
+		FA4F69602EFAE37000C6D2DC /* CachedNYTImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F695F2EFAE37000C6D2DC /* CachedNYTImage.swift */; };
+		FA4F69632EFB25F800C6D2DC /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F69622EFB25F800C6D2DC /* AppColors.swift */; };
+		FA4F69652EFB265B00C6D2DC /* AppSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F69642EFB265B00C6D2DC /* AppSpacing.swift */; };
+		FA4F69672EFB271700C6D2DC /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F69662EFB271700C6D2DC /* AppFonts.swift */; };
+		FA4F69692EFB27DA00C6D2DC /* AppFontModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F69682EFB27DA00C6D2DC /* AppFontModifiers.swift */; };
+		FA4F696B2EFB290F00C6D2DC /* AppColorModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F696A2EFB290F00C6D2DC /* AppColorModifiers.swift */; };
+		FA4F696D2EFB34D300C6D2DC /* MockImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F696C2EFB34D200C6D2DC /* MockImageProtocol.swift */; };
+		FA4F696F2EFB353A00C6D2DC /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F696E2EFB353A00C6D2DC /* ImageCacheTests.swift */; };
 		FAD435E32EF4824300FBD323 /* TechExApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD435E22EF4824300FBD323 /* TechExApp.swift */; };
 		FAD435E52EF4824300FBD323 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD435E42EF4824300FBD323 /* ContentView.swift */; };
 		FAD435E72EF4824600FBD323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD435E62EF4824600FBD323 /* Assets.xcassets */; };
@@ -51,6 +66,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA4F69492EFACD5100C6D2DC /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		FA4F694C2EFACD8C00C6D2DC /* ArticleViewModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewModifiers.swift; sourceTree = "<group>"; };
+		FA4F694F2EFAD27100C6D2DC /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		FA4F69502EFAD27100C6D2DC /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		FA4F69512EFAD27100C6D2DC /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		FA4F695A2EFAE06C00C6D2DC /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		FA4F695C2EFAE09900C6D2DC /* SecondryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondryButton.swift; sourceTree = "<group>"; };
+		FA4F695F2EFAE37000C6D2DC /* CachedNYTImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedNYTImage.swift; sourceTree = "<group>"; };
+		FA4F69622EFB25F800C6D2DC /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		FA4F69642EFB265B00C6D2DC /* AppSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSpacing.swift; sourceTree = "<group>"; };
+		FA4F69662EFB271700C6D2DC /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		FA4F69682EFB27DA00C6D2DC /* AppFontModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFontModifiers.swift; sourceTree = "<group>"; };
+		FA4F696A2EFB290F00C6D2DC /* AppColorModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorModifiers.swift; sourceTree = "<group>"; };
+		FA4F696C2EFB34D200C6D2DC /* MockImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageProtocol.swift; sourceTree = "<group>"; };
+		FA4F696E2EFB353A00C6D2DC /* ImageCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheTests.swift; sourceTree = "<group>"; };
 		FAD435DF2EF4824300FBD323 /* TechEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD435E22EF4824300FBD323 /* TechExApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechExApp.swift; sourceTree = "<group>"; };
 		FAD435E42EF4824300FBD323 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +136,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA4F694B2EFACD8300C6D2DC /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				FA4F694C2EFACD8C00C6D2DC /* ArticleViewModifiers.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		FA4F694E2EFAD26100C6D2DC /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				FA4F69502EFAD27100C6D2DC /* Poppins-Bold.ttf */,
+				FA4F69512EFAD27100C6D2DC /* Poppins-Regular.ttf */,
+				FA4F694F2EFAD27100C6D2DC /* Poppins-SemiBold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		FA4F69582EFAE02F00C6D2DC /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA4F69592EFAE03E00C6D2DC /* Buttons */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FA4F69592EFAE03E00C6D2DC /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				FA4F695A2EFAE06C00C6D2DC /* PrimaryButton.swift */,
+				FA4F695C2EFAE09900C6D2DC /* SecondryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		FA4F695E2EFAE36200C6D2DC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FA4F695F2EFAE37000C6D2DC /* CachedNYTImage.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FA4F69612EFB25EA00C6D2DC /* AppTheme */ = {
+			isa = PBXGroup;
+			children = (
+				FA4F69622EFB25F800C6D2DC /* AppColors.swift */,
+				FA4F69642EFB265B00C6D2DC /* AppSpacing.swift */,
+				FA4F69662EFB271700C6D2DC /* AppFonts.swift */,
+				FA4F69682EFB27DA00C6D2DC /* AppFontModifiers.swift */,
+				FA4F696A2EFB290F00C6D2DC /* AppColorModifiers.swift */,
+			);
+			path = AppTheme;
+			sourceTree = "<group>";
+		};
 		FAD435D62EF4824300FBD323 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +214,8 @@
 		FAD435E12EF4824300FBD323 /* TechEx */ = {
 			isa = PBXGroup;
 			children = (
+				FA4F69582EFAE02F00C6D2DC /* CustomViews */,
+				FA4F694E2EFAD26100C6D2DC /* Font */,
 				FAE0F46A2EF73C1400353FA2 /* Managers */,
 				FAE0F4672EF6FF0C00353FA2 /* Info.plist */,
 				FAE0F4382EF68EDF00353FA2 /* Module */,
@@ -155,6 +242,8 @@
 			children = (
 				FAD435F82EF4824700FBD323 /* TechExTests.swift */,
 				FAE0F4682EF715D100353FA2 /* MockArticlesNetworkService.swift */,
+				FA4F696C2EFB34D200C6D2DC /* MockImageProtocol.swift */,
+				FA4F696E2EFB353A00C6D2DC /* ImageCacheTests.swift */,
 			);
 			path = TechExTests;
 			sourceTree = "<group>";
@@ -171,6 +260,7 @@
 		FAE0F4382EF68EDF00353FA2 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				FA4F695E2EFAE36200C6D2DC /* Common */,
 				FAE0F44F2EF6910E00353FA2 /* Home */,
 			);
 			path = Module;
@@ -190,6 +280,7 @@
 		FAE0F44F2EF6910E00353FA2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FA4F69492EFACD5100C6D2DC /* HomeCoordinator.swift */,
 				FAE0F4602EF6F76200353FA2 /* Endpoints */,
 				FAE0F4392EF68EED00353FA2 /* Model */,
 				FAE0F4512EF6920900353FA2 /* View */,
@@ -209,6 +300,7 @@
 		FAE0F4512EF6920900353FA2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA4F694B2EFACD8300C6D2DC /* ViewModifiers */,
 				FAE0F4632EF6F8B800353FA2 /* ArticleListView.swift */,
 				FAE0F4652EF6F8F600353FA2 /* ArticleDetailView.swift */,
 			);
@@ -226,6 +318,7 @@
 		FAE0F46A2EF73C1400353FA2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FA4F69612EFB25EA00C6D2DC /* AppTheme */,
 				FAE0F46C2EF73C5A00353FA2 /* ImageManager */,
 				FAE0F46B2EF73C2A00353FA2 /* Network */,
 			);
@@ -356,8 +449,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4F69522EFAD27100C6D2DC /* Poppins-SemiBold.ttf in Resources */,
 				FAD435EA2EF4824600FBD323 /* Preview Assets.xcassets in Resources */,
 				FAD435E72EF4824600FBD323 /* Assets.xcassets in Resources */,
+				FA4F69532EFAD27100C6D2DC /* Poppins-Bold.ttf in Resources */,
+				FA4F69542EFAD27100C6D2DC /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,22 +480,32 @@
 			files = (
 				FAE0F4562EF6F73800353FA2 /* NYTimesBaseModel.swift in Sources */,
 				FAE0F4532EF6F6BD00353FA2 /* ArticleHomeViewModel.swift in Sources */,
+				FA4F69672EFB271700C6D2DC /* AppFonts.swift in Sources */,
 				FAE0F4372EF68DF100353FA2 /* NetworkManager.swift in Sources */,
+				FA4F69652EFB265B00C6D2DC /* AppSpacing.swift in Sources */,
 				FAD435EF2EF4824700FBD323 /* TechEx.xcdatamodeld in Sources */,
 				FAE0F4702EF7403B00353FA2 /* ImageCacheManager.swift in Sources */,
+				FA4F695D2EFAE09900C6D2DC /* SecondryButton.swift in Sources */,
 				FAE0F4622EF6F78600353FA2 /* ArticleEndpoint.swift in Sources */,
 				FAE0F4642EF6F8B800353FA2 /* ArticleListView.swift in Sources */,
 				FAD435EC2EF4824700FBD323 /* Persistence.swift in Sources */,
 				FAE0F46E2EF73CBE00353FA2 /* NetworkMonitor.swift in Sources */,
 				FAD435E52EF4824300FBD323 /* ContentView.swift in Sources */,
 				FAE0F4542EF6F73800353FA2 /* ArticlesResult.swift in Sources */,
+				FA4F695B2EFAE06C00C6D2DC /* PrimaryButton.swift in Sources */,
 				FAD435E32EF4824300FBD323 /* TechExApp.swift in Sources */,
+				FA4F696B2EFB290F00C6D2DC /* AppColorModifiers.swift in Sources */,
 				FAE0F4742EF7408100353FA2 /* CachedImageLoader.swift in Sources */,
 				FAE0F4662EF6F8F600353FA2 /* ArticleDetailView.swift in Sources */,
 				FAE0F4362EF68DF100353FA2 /* NetworkServiceProtocol.swift in Sources */,
 				FAE0F4572EF6F73800353FA2 /* ArticleMediaMetadata.swift in Sources */,
 				FAE0F4722EF7405200353FA2 /* DiskCacheManager.swift in Sources */,
+				FA4F69632EFB25F800C6D2DC /* AppColors.swift in Sources */,
+				FA4F69692EFB27DA00C6D2DC /* AppFontModifiers.swift in Sources */,
 				FAE0F4552EF6F73800353FA2 /* ArticleMedia.swift in Sources */,
+				FA4F694D2EFACD8C00C6D2DC /* ArticleViewModifiers.swift in Sources */,
+				FA4F694A2EFACD5200C6D2DC /* HomeCoordinator.swift in Sources */,
+				FA4F69602EFAE37000C6D2DC /* CachedNYTImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +514,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD435F92EF4824700FBD323 /* TechExTests.swift in Sources */,
+				FA4F696D2EFB34D300C6D2DC /* MockImageProtocol.swift in Sources */,
+				FA4F696F2EFB353A00C6D2DC /* ImageCacheTests.swift in Sources */,
 				FAE0F4692EF715D100353FA2 /* MockArticlesNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

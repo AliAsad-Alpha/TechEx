@@ -8,7 +8,7 @@
 import Foundation
 import OSLog
 
-final class DiskCache {
+final class DiskCache: DiskCacheProtocol {
     static let shared = DiskCache()
     let pathLogger = Logger(subsystem: "com.gof.TechEx", category: "diskCache")
     private let directory: URL
@@ -21,7 +21,7 @@ final class DiskCache {
     }
 
     func fileURL(for url: URL) -> URL {
-        pathLogger.debug("\(self.directory.appending(path: url.lastPathComponent))")
+//        pathLogger.debug("\(self.directory.appending(path: url.lastPathComponent))")
         return directory.appending(path: url.lastPathComponent)
     }
 }

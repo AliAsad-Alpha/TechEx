@@ -7,74 +7,111 @@
 
 import SwiftUI
 
-struct ArticlesListView: View {
-    
-    @ObservedObject private var viewModel = ArticlesViewModel()
+// MARK: - Custom Views
+struct ArticleRowView: View {
+    let article: ArticlesResult
     
     var body: some View {
-        let _ = Self._printChanges()
-        NavigationStack {
-            VStack {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .controlSize(.large)
-                } else if let error = viewModel.errorMessage {
-                    Text(error).foregroundColor(.red)
-                } else {
-                    List(viewModel.articles) { article in
-                        NavigationLink(value: article) {
-                            VStack(alignment: .leading, spacing: 20) {
-                                CachedNYTImage(article: article)
-                                    .clipShape(RoundedRectangle(cornerSize: CGSize(width: 5, height: 5)))
-                                Text(article.title ?? "--")
-                                    .font(.headline)
-                                Text(article.byline ?? "--")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                            }
-                        }
-                        .background(Color.clear)
-                        .padding(.horizontal, 0)
-                        .padding(.vertical, 10)
-                    }.listRowSeparator(.hidden)
-                }
+        VStack(alignment: .leading, spacing: 12) {
+            CachedNYTImage(article: article)
+                .articleImageStyle()
+                
+            
+            VStack(alignment: .leading, spacing: 4) {
+                Text(article.title ?? "--")
+                    .appFont(style: .headline, weight: .bold)
+                    .primaryTextColor()
+                    .lineLimit(2)
+                
+                Text(article.byline ?? "--")
+                    .appFont(style: .caption, weight: .regular)
+                    .secondaryTextColor()
             }
-            .navigationTitle("Most Popular")
-            .navigationDestination(for: ArticlesResult.self) { article in
-                ArticleDetailView(article: article)
-            }
+        }
+        .articleCardStyle() // Applying custom modifier
+    }
+}
+
+// MARK: - Main List View
+struct ArticlesListView: View {
+
+    @StateObject private var viewModel = ArticlesViewModel(networkService: NetworkManager())
+    @EnvironmentObject private var coordinator: HomeCoordinator
+
+    var body: some View {
+        NavigationStack(path: $coordinator.navigationPath) {
+            content
+                .navigationTitle("Most Popular")
+                .navigationDestination(for: HomeRoute.self, destination: destination)
         }
         .task {
-            await viewModel.loadArticles()
-        }
-        .refreshable {
-            await viewModel.loadArticles()
+            Task {
+                viewModel.loadArticlesTask()
+            }
         }
     }
 }
 
-struct CachedNYTImage: View {
-    let article: ArticlesResult
+private extension ArticlesListView {
 
-    @StateObject private var loader = CachedImageLoader()
-    var body: some View {
-        let _ = Self._printChanges()
-        Group {
-            if let image = loader.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-            } else {
-                ProgressView()
-            }
+    @ViewBuilder
+    func destination(for route: HomeRoute) -> some View {
+        switch route {
+        case .articleDetail(let article):
+            ArticleDetailView(article: article)
+                .environmentObject(coordinator)
         }
-        .task {
-            if let url = article.imageURL(quality: ImageVariantSelector.selectFormat()) {
-               await loader.load(from: url)
-            }
+    }
+}
+
+
+private extension ArticlesListView {
+
+    @ViewBuilder
+    var content: some View {
+        if viewModel.isLoading {
+            ProgressView()
+                .controlSize(.large)
+        } else if let error = viewModel.errorMessage {
+            errorView(error)
+        } else {
+            articlesList
         }
-        .onDisappear {
-            loader.cancel()
+    }
+}
+
+private extension ArticlesListView {
+
+    func errorView(_ error: String) -> some View {
+        VStack(spacing: 12) {
+            Text(error)
+                .foregroundColor(.red)
+
+            Button("Retry") {
+                Task {
+                    await viewModel.loadArticles()
+                }
+            }
+            .buttonStyle(PrimaryButtonStyle())
+        }
+        .padding()
+    }
+}
+
+private extension ArticlesListView {
+
+    var articlesList: some View {
+        List(viewModel.articles) { article in
+            NavigationLink(value: HomeRoute.articleDetail(article)) {
+                ArticleRowView(article: article)
+            }
+            .listRowSeparator(.hidden)
+            .listRowBackground(Color.clear)
+        }
+        .background(AppColors.background)
+        .listStyle(.plain)
+        .refreshable {
+            viewModel.loadArticlesTask()
         }
     }
 }

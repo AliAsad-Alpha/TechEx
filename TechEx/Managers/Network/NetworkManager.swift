@@ -65,13 +65,17 @@ final class NetworkManager: NetworkServiceProtocol {
                 let decoded = try JSONDecoder().decode(W.ResponseType.self, from: data)
                 //Add check in case of sandbox should log the data
                 if let jsonString = String(data: data, encoding: .utf8) {
-                    apiLogger.debug("API Response Body: \(jsonString)")
+//                    apiLogger.debug("API Response Body: \(jsonString)")
                 }
                 return .success(decoded)
             } catch {
                 return .failure(.decodingError)
             }
 
+        } catch let error as URLError {
+            // Log exactly why the network failed (e.g., timeout, lost connection)
+            apiLogger.error("Network Failed: \(error.localizedDescription) (Code: \(error.code.rawValue))")
+            return .failure(.unknown(error))
         } catch {
             return .failure(.unknown(error))
         }

@@ -8,50 +8,78 @@
 import Foundation
 import UIKit
 
+protocol ImageCacheProtocol {
+    func object(forKey key: String) -> UIImage?
+    func setObject(_ obj: UIImage, forKey key: String)
+}
+
+protocol DiskCacheProtocol {
+    func fileURL(for url: URL) -> URL
+}
+
+protocol NetworkSessionProtocol {
+    func data(from url: URL) async throws -> (Data, URLResponse)
+}
+
+extension URLSession: NetworkSessionProtocol {}
+
+
 @MainActor
 final class CachedImageLoader: ObservableObject {
-    @Published var image: UIImage?
 
-    private var task: Task<Void, Never>?
+    enum LoadingStatus: Equatable {
+        case idle, loading, success(UIImage), failure
+    }
+
+    @Published var status: LoadingStatus = .idle
+
+    private let imageCache: ImageCacheProtocol
+    private let diskCache: DiskCacheProtocol
+    private let session: NetworkSessionProtocol
+
+    init(
+        imageCache: ImageCacheProtocol = ImageCache.shared,
+        diskCache: DiskCacheProtocol = DiskCache.shared,
+        session: NetworkSessionProtocol = URLSession.shared
+    ) {
+        self.imageCache = imageCache
+        self.diskCache = diskCache
+        self.session = session
+    }
 
     func load(from url: URL) async {
-        // 1. Memory cache
-        task = Task {
-            if let cached = ImageCache.shared.object(forKey: url as NSURL) {
-                image = cached
+        status = .loading
+
+        if let cached = imageCache.object(forKey: url.absoluteString) {
+            status = .success(cached)
+            return
+        }
+
+        let diskURL = diskCache.fileURL(for: url)
+        if let data = try? Data(contentsOf: diskURL),
+           let cached = UIImage(data: data) {
+            imageCache.setObject(cached, forKey: url.absoluteString)
+            status = .success(cached)
+            return
+        }
+
+        do {
+            let (data, _) = try await session.data(from: url)
+            guard let image = UIImage(data: data) else {
+                status = .failure
                 return
             }
-            
-            // 2. Disk cache
-            let diskURL = DiskCache.shared.fileURL(for: url)
-            if let data = try? Data(contentsOf: diskURL),
-               let cached = UIImage(data: data) {
-                ImageCache.shared.setObject(cached, forKey: url as NSURL)
-                image = cached
-                return
-            }
-            
-            
-            // 3. Download
-            do {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                guard !Task.isCancelled,
-                      let downloaded = UIImage(data: data) else { return }
-                
-                ImageCache.shared.setObject(downloaded, forKey: url as NSURL)
-                try? data.write(to: diskURL)
-                
-                DispatchQueue.main.async {
-                    self.image = downloaded
-                }
-            } catch {
-                print("Image download failed:", error)
-            }
-            
+
+            imageCache.setObject(image, forKey: url.absoluteString)
+            try? data.write(to: diskURL)
+            status = .success(image)
+
+        } catch {
+            status = .failure
         }
     }
 
     func cancel() {
-        task?.cancel()
+        status = .idle
     }
 }
