@@ -31,6 +31,7 @@ final class CachedImageLoader: ObservableObject {
         case idle, loading, success(UIImage), failure
     }
 
+    //Keep the track of the loading status
     @Published var status: LoadingStatus = .idle
 
     private let imageCache: ImageCacheProtocol
